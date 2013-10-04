@@ -26,11 +26,11 @@ public class User implements IUser {
 	private final String WISHLIST = "WISHLIST";
 	private final String SHOPPINGCART = "SHOPPINGCART";
 	
-	private Map<String, Object> data = new HashMap<String, Object>();
+	private Map<String, List<ProductItem>> data = new HashMap<String, List<ProductItem>>();
 	public User()
 	{
-		data.put(WISHLIST, new ArrayList<Object>());
-		data.put(SHOPPINGCART, new ArrayList<Object>());
+		data.put(WISHLIST, new ArrayList<ProductItem>());
+		data.put(SHOPPINGCART, new ArrayList<ProductItem>());
 	}
 	
 	
