@@ -7,15 +7,22 @@ import java.util.Map;
 
 import ca.ubc.cpsc310.gitlab.client.products.ProductItem;
 
+import java.util.List;
+
+import ca.ubc.cpsc310.gitlab.client.products.ProductItem;
+
 @SuppressWarnings("unchecked")
 public class User implements IUser {
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -6968277136462621810L;
-	private final String LANG = "LANG";
-	private final String NAME = "NAME";
+	private static final long serialVersionUID = -4678920906536621479L;
+	
+	private String name;
+	private String language;
+
+	
 	private final String WISHLIST = "WISHLIST";
 	private final String SHOPPINGCART = "SHOPPINGCART";
 	
@@ -26,16 +33,29 @@ public class User implements IUser {
 		data.put(SHOPPINGCART, new ArrayList<Object>());
 	}
 	
+	
+	@Override
+	public void setLanguage(String language) {
+		this.language = language;
+		
+	}
+
+	@Override
+	public void setName(String name) {
+		this.name = name;
+	}
+	
 	@Override
 	public String getLanguage() {
-		return (String) data.get(LANG);
+		return language;
 	}
 
 	@Override
 	public String getName() {
-		return (String) data.get(NAME);
+		return name;
 	}
 
+		
 	@Override
 	public List<ProductItem> getWishList() {
 		return (List<ProductItem>) data.get(WISHLIST);
@@ -46,17 +66,7 @@ public class User implements IUser {
 		return (List<ProductItem>) data.get(SHOPPINGCART);
 	}
 
-	@Override
-	public void setLanguage(String language) {
-		data.put(LANG,language);
-		
-	}
-
-	@Override
-	public void setName(String name) {
-		data.put(NAME, name);
-		
-	}
+	
 
 	@Override
 	public void addItemToWishList(ProductItem o) {
@@ -79,5 +89,4 @@ public class User implements IUser {
 		((List<ProductItem>) data.get(SHOPPINGCART)).add(o);
 	}
 
-	
 }
